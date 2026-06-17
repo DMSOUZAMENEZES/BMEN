@@ -1,0 +1,137 @@
+{
+  "meta": {
+    "name": "BMEN Ontologia",
+    "version": "1.0.0",
+    "language": "pt-BR",
+    "created_at": "2026-06-17",
+    "scope": [
+      "TEA",
+      "TDAH",
+      "Linguagem",
+      "Ansiedade",
+      "Sensorial"
+    ]
+  },
+  "domains": [
+    {
+      "id": "linguagem",
+      "label": "Linguagem",
+      "description": "Comunicação expressiva, receptiva e pragmática"
+    },
+    {
+      "id": "atencao_executivo",
+      "label": "Atenção/Funções executivas",
+      "description": "Foco, inibição, memória de trabalho e planejamento"
+    },
+    {
+      "id": "regulacao_emocional",
+      "label": "Regulação emocional",
+      "description": "Reconhecimento, modulação e expressão emocional"
+    },
+    {
+      "id": "sensorial",
+      "label": "Processamento sensorial",
+      "description": "Modulação e integração de estímulos sensoriais"
+    },
+    {
+      "id": "interacao_social",
+      "label": "Interação social",
+      "description": "Reciprocidade social e adaptação contextual"
+    }
+  ],
+  "conditions": [
+    {
+      "id": "tea",
+      "label": "Transtorno do Espectro Autista",
+      "aliases": ["TEA", "ASD"],
+      "category": "neurodesenvolvimento",
+      "affects_domains": ["linguagem", "sensorial", "interacao_social", "regulacao_emocional"]
+    },
+    {
+      "id": "tdah",
+      "label": "Transtorno do Déficit de Atenção/Hiperatividade",
+      "aliases": ["TDAH", "ADHD"],
+      "category": "neurodesenvolvimento",
+      "affects_domains": ["atencao_executivo", "regulacao_emocional", "interacao_social"]
+    },
+    {
+      "id": "transtorno_ansiedade",
+      "label": "Transtorno de Ansiedade",
+      "aliases": ["Ansiedade"],
+      "category": "ansiedade",
+      "affects_domains": ["regulacao_emocional", "interacao_social", "atencao_executivo"]
+    }
+  ],
+  "signs": [
+    {
+      "id": "hipersensibilidade_a_som",
+      "label": "Hipersensibilidade a som",
+      "related_domains": ["sensorial"]
+    },
+    {
+      "id": "dificuldade_manutencao_foco",
+      "label": "Dificuldade de manutenção de foco",
+      "related_domains": ["atencao_executivo"]
+    },
+    {
+      "id": "ecolalia",
+      "label": "Ecolalia",
+      "related_domains": ["linguagem"]
+    },
+    {
+      "id": "inquietacao_motora",
+      "label": "Inquietação motora",
+      "related_domains": ["atencao_executivo", "regulacao_emocional"]
+    },
+    {
+      "id": "evitacao_social",
+      "label": "Evitação social",
+      "related_domains": ["interacao_social", "regulacao_emocional"]
+    }
+  ],
+  "assessments": [
+    {
+      "id": "avaliacao_observacional_contextual",
+      "label": "Avaliação observacional contextual",
+      "type": "observacional",
+      "target_domains": ["linguagem", "interacao_social", "sensorial"]
+    },
+    {
+      "id": "triagem_atencao_executivo",
+      "label": "Triagem de atenção/funções executivas",
+      "type": "triagem",
+      "target_domains": ["atencao_executivo"]
+    }
+  ],
+  "interventions": [
+    {
+      "id": "adaptacao_ambiental_sensorial",
+      "label": "Adaptação ambiental sensorial",
+      "type": "ambiental",
+      "target_domains": ["sensorial"],
+      "indications": ["hipersensibilidade_a_som"]
+    },
+    {
+      "id": "rotina_estruturada_suporte_executivo",
+      "label": "Rotina estruturada com suporte executivo",
+      "type": "educacional",
+      "target_domains": ["atencao_executivo"],
+      "indications": ["dificuldade_manutencao_foco", "inquietacao_motora"]
+    },
+    {
+      "id": "intervencao_comunicacao_pragmatica",
+      "label": "Intervenção em comunicação pragmática",
+      "type": "terapeutica",
+      "target_domains": ["linguagem", "interacao_social"],
+      "indications": ["ecolalia", "evitacao_social"]
+    }
+  ],
+  "relations": [
+    {"type": "affects", "from": "condition", "to": "domain"},
+    {"type": "associated_with", "from": "condition", "to": "sign"},
+    {"type": "evaluates", "from": "assessment", "to": "domain"},
+    {"type": "targets", "from": "intervention", "to": "domain"},
+    {"type": "indicated_for", "from": "intervention", "to": "condition_or_sign"},
+    {"type": "produces", "from": "intervention", "to": "outcome"}
+  ]
+}
