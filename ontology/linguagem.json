@@ -1,0 +1,47 @@
+{
+  "id": "LINGUAGEM",
+  "label": "Transtornos de Linguagem e Comunicacao",
+  "version": "1.0.0",
+  "updated_at": "2026-06-17",
+  "description": "Ontologia de transtornos de linguagem e comunicacao - dominios expressivo e receptivo",
+  "domains": {
+    "expressivo": {
+      "label": "Linguagem Expressiva",
+      "description": "Capacidade de produzir linguagem oral, escrita e gestual",
+      "concepts": []
+    },
+    "receptivo": {
+      "label": "Linguagem Receptiva",
+      "description": "Capacidade de compreender linguagem oral e escrita",
+      "concepts": []
+    },
+    "pragmatico": {
+      "label": "Linguagem Pragmatica",
+      "description": "Uso social e funcional da linguagem",
+      "concepts": []
+    },
+    "fonologico": {
+      "label": "Processamento Fonologico",
+      "description": "Percepcao e discriminacao de sons da fala",
+      "concepts": []
+    }
+  },
+  "markers": {
+    "atraso_linguagem": {
+      "label": "Atraso no Desenvolvimento da Linguagem",
+      "age_references": {
+        "12m": "primeiras palavras esperadas",
+        "18m": "vocabulario de 10-20 palavras",
+        "24m": "combinacoes de 2 palavras",
+        "36m": "frases de 3-4 palavras"
+      },
+      "concepts": []
+    },
+    "regressao": {
+      "label": "Regressao de Linguagem",
+      "description": "Perda de habilidades de linguagem previamente adquiridas",
+      "concepts": []
+    }
+  },
+  "related_conditions": ["TEA", "TDAH", "dislexia", "apraxia"]
+}
