@@ -1,0 +1,53 @@
+{
+  "id": "DIFF_TEA_TDAH",
+  "title": "Diagnostico Diferencial: TEA vs TDAH",
+  "version": "1.0.0",
+  "updated_at": "2026-06-17",
+  "description": "Guia de diagnostico diferencial entre TEA e TDAH, incluindo comorbidades",
+  "key_distinctions": [
+    {
+      "domain": "contato_visual",
+      "tea": "Reducao funcional do contato visual como parte do padrao de comunicacao",
+      "tdah": "Contato visual geralmente preservado; dificuldade de foco pode parecer similar"
+    },
+    {
+      "domain": "reciprocidade_social",
+      "tea": "Dificuldade qualitativa na reciprocidade socioemocional",
+      "tdah": "Reciprocidade social presente, mas impactada por impulsividade"
+    },
+    {
+      "domain": "linguagem",
+      "tea": "Pode haver atraso, regressao ou uso atipico (ecolalia, linguagem literal)",
+      "tdah": "Linguagem geralmente preservada; fala pode ser excessiva (hiperverbal)"
+    },
+    {
+      "domain": "comportamentos_repetitivos",
+      "tea": "Presentes e caracteristicos (stimmings, insistencia em rotinas)",
+      "tdah": "Ausentes como padrao primario"
+    },
+    {
+      "domain": "sensorial",
+      "tea": "Hiper/hipossensibilidade sensorial frequente e marcada",
+      "tdah": "Pode ocorrer busca sensorial, mas menos sistematica"
+    },
+    {
+      "domain": "atencao",
+      "tea": "Atencao pode ser muito focalizada em interesses restritos (hiperfoco)",
+      "tdah": "Desatencao generalizada, dificuldade de manutencao do foco"
+    }
+  ],
+  "comorbidity_note": "TEA e TDAH podem coexistir (DSM-5 permite diagnostico duplo). Presenca de comportamentos repetitivos e dificuldades qualitativas na comunicacao social aponta para TEA, mesmo com TDAH concomitante.",
+  "red_flags_tea": [
+    "Ausencia de apontamento protodeclarativo antes dos 12 meses",
+    "Ausencia de palavras isoladas antes dos 16 meses",
+    "Ausencia de frases espontaneas antes dos 24 meses",
+    "Regressao de linguagem ou habilidades sociais em qualquer idade",
+    "Brincadeira simbolica ausente ou atipica"
+  ],
+  "red_flags_tdah": [
+    "Dificuldade em esperar a vez em contextos multiplos",
+    "Interrompe conversas e atividades de outros",
+    "Dificuldade de seguir instrucoes de multiplos passos",
+    "Esquece atividades rotineiras sem relacao com falta de interesse"
+  ]
+}
