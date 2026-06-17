@@ -1,0 +1,38 @@
+# BMEN - Initial generic .gitignore
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor/IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+logs/
+
+# Env
+.env
+.env.*
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.venv/
+venv/
+
+# Node
+node_modules/
+
+# Build/Dist
+build/
+dist/
+*.egg-info/
+
+# Jupyter
+.ipynb_checkpoints/
