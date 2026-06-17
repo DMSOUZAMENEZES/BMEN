@@ -1,0 +1,68 @@
+{
+    "id": "TEA",
+    "label": "Transtorno do Espectro Autista",
+    "version": "1.0.0",
+    "updated_at": "2026-06-17",
+    "description": "Ontologia do TEA baseada nos critérios DSM-5",
+    "criteria": {
+          "A": {
+                  "label": "Déficits na comunicação e interação social",
+                  "required": true,
+                  "subcriteria": {
+                            "A1": {
+                                        "label": "Déficits na reciprocidade socioemocional",
+                                        "concepts": []
+                            },
+                            "A2": {
+                                        "label": "Déficits nos comportamentos comunicativos não-verbais",
+                                        "concepts": []
+                            },
+                            "A3": {
+                                        "label": "Déficits no desenvolvimento e manutenção de relacionamentos",
+                                        "concepts": []
+                            }
+                  }
+          },
+          "B": {
+                  "label": "Padrões restritos e repetitivos de comportamento",
+                  "required": true,
+                  "minimum": 2,
+                  "subcriteria": {
+                            "B1": {
+                                        "label": "Movimentos, uso de objetos ou fala estereotipados",
+                                        "concepts": []
+                            },
+                            "B2": {
+                                        "label": "Insistência na mesmice e inflexibilidade a rotinas",
+                                        "concepts": []
+                            },
+                            "B3": {
+                                        "label": "Interesses altamente restritos e fixos",
+                                        "concepts": []
+                            },
+                            "B4": {
+                                        "label": "Hiper ou hiporreatividade sensorial",
+                                        "concepts": []
+                            }
+                  }
+          },
+          "C": {
+                  "label": "Sintomas presentes no período do desenvolvimento precoce",
+                  "required": true
+          },
+          "D": {
+                  "label": "Prejuízo clinicamente significativo",
+                  "required": true
+          },
+          "E": {
+                  "label": "Não melhor explicado por DI ou atraso global do desenvolvimento",
+                  "required": true
+          }
+    },
+    "severity_levels": {
+          "1": "Necessita de apoio",
+          "2": "Necessita de apoio substancial",
+          "3": "Necessita de apoio muito substancial"
+    },
+    "related_conditions": ["TDAH", "ansiedade", "linguagem", "sensorial"]
+}
