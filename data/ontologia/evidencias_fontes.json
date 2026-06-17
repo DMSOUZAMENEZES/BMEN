@@ -1,0 +1,38 @@
+{
+  "meta": {
+    "name": "BMEN Evidências e Fontes",
+    "version": "1.1.0",
+    "language": "pt-BR",
+    "created_at": "2026-06-17"
+  },
+  "evidences": [
+    {
+      "id": "ev_adaptacao_ambiental_sensorial_001",
+      "statement": "Adaptações ambientais podem reduzir sobrecarga sensorial em perfis com hipersensibilidade.",
+      "level": "moderado",
+      "supports": ["adaptacao_ambiental_sensorial"]
+    },
+    {
+      "id": "ev_rotina_estruturada_001",
+      "statement": "Rotinas estruturadas e apoios externos favorecem organização e manejo executivo em perfis com dificuldades atencionais.",
+      "level": "moderado",
+      "supports": ["rotina_estruturada_suporte_executivo"]
+    },
+    {
+      "id": "ev_comunicacao_pragmatica_001",
+      "statement": "Intervenções focadas em comunicação pragmática podem favorecer funcionalidade comunicativa e interação social.",
+      "level": "moderado",
+      "supports": ["intervencao_comunicacao_pragmatica"]
+    }
+  ],
+  "sources": [
+    {
+      "id": "src_placeholder_001",
+      "title": "Fonte a ser definida",
+      "authors": ["A definir"],
+      "year": 2026,
+      "url_or_doi": "",
+      "notes": "Substituir por revisão, guideline ou artigo primário"
+    }
+  ]
+}

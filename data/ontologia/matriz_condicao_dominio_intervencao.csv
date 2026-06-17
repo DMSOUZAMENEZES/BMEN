@@ -1,0 +1,8 @@
+condition_id,condition_label,domain_id,domain_label,intervention_id,intervention_label,intervention_type,priority,notes
+tea,Transtorno do Espectro Autista,linguagem,Linguagem,intervencao_comunicacao_pragmatica,Intervenção em comunicação pragmática,terapeutica,alta,Foco em comunicação funcional e pragmática
+tea,Transtorno do Espectro Autista,sensorial,Processamento sensorial,adaptacao_ambiental_sensorial,Adaptação ambiental sensorial,ambiental,alta,Ajustes de ambiente e estímulos
+tea,Transtorno do Espectro Autista,interacao_social,Interação social,intervencao_comunicacao_pragmatica,Intervenção em comunicação pragmática,terapeutica,alta,Trabalho de reciprocidade e contexto social
+tdah,Transtorno do Déficit de Atenção/Hiperatividade,atencao_executivo,Atenção/Funções executivas,rotina_estruturada_suporte_executivo,Rotina estruturada com suporte executivo,educacional,alta,Suporte à organização, foco e autorregulação
+tdah,Transtorno do Déficit de Atenção/Hiperatividade,regulacao_emocional,Regulação emocional,rotina_estruturada_suporte_executivo,Rotina estruturada com suporte executivo,educacional,media,Associar com estratégias de monitoramento emocional
+transtorno_ansiedade,Transtorno de Ansiedade,regulacao_emocional,Regulação emocional,adaptacao_ambiental_sensorial,Adaptação ambiental sensorial,ambiental,media,Redução de gatilhos ambientais quando aplicável
+transtorno_ansiedade,Transtorno de Ansiedade,interacao_social,Interação social,intervencao_comunicacao_pragmatica,Intervenção em comunicação pragmática,terapeutica,media,Aplicável quando houver impacto comunicativo/social
