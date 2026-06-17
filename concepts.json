@@ -1,0 +1,67 @@
+[
+  {
+    "id": "TEA_A1_SOC_001",
+    "concept": "baixa_iniciativa_social",
+    "label": "Baixa Iniciativa Social",
+    "condition": "TEA",
+    "criterion": "A1",
+    "domain": "social",
+    "weight": 10,
+    "description": "Crianca raramente inicia interacoes sociais espontaneas com pares ou adultos",
+    "age_relevant": "todos",
+    "created_at": "2026-06-17",
+    "updated_at": "2026-06-17"
+  },
+  {
+    "id": "TEA_A2_NV_001",
+    "concept": "contato_visual_reduzido",
+    "label": "Contato Visual Reduzido",
+    "condition": "TEA",
+    "criterion": "A2",
+    "domain": "comunicacao_nao_verbal",
+    "weight": 10,
+    "description": "Dificuldade em manter contato visual adequado durante interacoes sociais",
+    "age_relevant": "todos",
+    "created_at": "2026-06-17",
+    "updated_at": "2026-06-17"
+  },
+  {
+    "id": "TEA_B2_ROT_001",
+    "concept": "insistencia_rotinas",
+    "label": "Insistencia em Rotinas",
+    "condition": "TEA",
+    "criterion": "B2",
+    "domain": "comportamento_restrito",
+    "weight": 8,
+    "description": "Resistencia intensa a mudancas na rotina diaria, podendo gerar crises comportamentais",
+    "age_relevant": "todos",
+    "created_at": "2026-06-17",
+    "updated_at": "2026-06-17"
+  },
+  {
+    "id": "TDAH_A1_DES_001",
+    "concept": "dificuldade_manutencao_atencao",
+    "label": "Dificuldade de Manutencao da Atencao",
+    "condition": "TDAH",
+    "criterion": "A1",
+    "domain": "atencao",
+    "weight": 9,
+    "description": "Dificuldade em manter a atencao em tarefas ou atividades ludicas por periodo adequado a idade",
+    "age_relevant": "todos",
+    "created_at": "2026-06-17",
+    "updated_at": "2026-06-17"
+  },
+  {
+    "id": "TDAH_A2_HIP_001",
+    "concept": "hiperatividade_motora",
+    "label": "Hiperatividade Motora",
+    "condition": "TDAH",
+    "criterion": "A2",
+    "domain": "hiperatividade",
+    "weight": 8,
+    "description": "Agitacao motora excessiva e dificuldade de permanecer sentado em situacoes adequadas",
+    "age_relevant": "todos",
+    "created_at": "2026-06-17",
+    "updated_at": "2026-06-17"
+  }
+]
