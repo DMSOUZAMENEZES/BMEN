@@ -1,0 +1,47 @@
+{
+  "id": "TDAH",
+  "label": "Transtorno do Deficit de Atencao e Hiperatividade",
+  "version": "1.0.0",
+  "updated_at": "2026-06-17",
+  "description": "Ontologia do TDAH baseada nos criterios DSM-5",
+  "criteria": {
+    "A": {
+      "label": "Padrao persistente de desatencao e/ou hiperatividade-impulsividade",
+      "required": true,
+      "presentations": {
+        "A1": {
+          "label": "Desatencao",
+          "minimum_symptoms": 6,
+          "concepts": []
+        },
+        "A2": {
+          "label": "Hiperatividade e Impulsividade",
+          "minimum_symptoms": 6,
+          "concepts": []
+        }
+      }
+    },
+    "B": {
+      "label": "Sintomas presentes antes dos 12 anos",
+      "required": true
+    },
+    "C": {
+      "label": "Sintomas em dois ou mais contextos",
+      "required": true
+    },
+    "D": {
+      "label": "Evidencia de prejuizo no funcionamento",
+      "required": true
+    },
+    "E": {
+      "label": "Nao melhor explicado por outro transtorno mental",
+      "required": true
+    }
+  },
+  "presentations": {
+    "combinado": "Apresentacao combinada (A1+A2)",
+    "desatento": "Apresentacao predominantemente desatenta",
+    "hiperativo": "Apresentacao predominantemente hiperativa-impulsiva"
+  },
+  "related_conditions": ["TEA", "ansiedade", "linguagem"]
+}
