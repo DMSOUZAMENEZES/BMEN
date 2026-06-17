@@ -1,0 +1,49 @@
+{
+  "id": "ANSIEDADE",
+  "label": "Transtornos de Ansiedade",
+  "version": "1.0.0",
+  "updated_at": "2026-06-17",
+  "description": "Ontologia dos transtornos de ansiedade em criancas e adolescentes",
+  "subtypes": {
+    "ansiedade_separacao": {
+      "label": "Transtorno de Ansiedade de Separacao",
+      "dsm5_code": "309.21",
+      "concepts": []
+    },
+    "mutismo_seletivo": {
+      "label": "Mutismo Seletivo",
+      "dsm5_code": "312.23",
+      "concepts": []
+    },
+    "fobia_especifica": {
+      "label": "Fobia Especifica",
+      "dsm5_code": "300.29",
+      "concepts": []
+    },
+    "ansiedade_social": {
+      "label": "Transtorno de Ansiedade Social",
+      "dsm5_code": "300.23",
+      "concepts": []
+    },
+    "ansiedade_generalizada": {
+      "label": "Transtorno de Ansiedade Generalizada",
+      "dsm5_code": "300.02",
+      "concepts": []
+    }
+  },
+  "manifestations": {
+    "somatico": {
+      "label": "Manifestacoes Somaticas",
+      "concepts": []
+    },
+    "comportamental": {
+      "label": "Manifestacoes Comportamentais",
+      "concepts": []
+    },
+    "cognitivo": {
+      "label": "Manifestacoes Cognitivas",
+      "concepts": []
+    }
+  },
+  "related_conditions": ["TEA", "TDAH", "TOC", "TEPT"]
+}
