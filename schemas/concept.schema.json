@@ -1,0 +1,70 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/DMSOUZAMENEZES/BMEN/schemas/concept.schema.json",
+  "title": "BMEN Concept",
+  "description": "Schema de validacao para conceitos clinicos da BMEN",
+  "type": "object",
+  "required": ["id", "concept", "label", "condition", "criterion", "domain", "weight", "description"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Z]+_[A-Z0-9]+_[A-Z]+_[0-9]{3}$",
+      "description": "Identificador unico no formato CONDICAO_CRITERIO_DOMINIO_NUM",
+      "examples": ["TEA_A1_SOC_001", "TDAH_A2_HIP_003"]
+    },
+    "concept": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*$",
+      "description": "Nome do conceito em snake_case",
+      "examples": ["contato_visual_reduzido", "baixa_iniciativa_social"]
+    },
+    "label": {
+      "type": "string",
+      "description": "Nome legivel do conceito em Title Case",
+      "examples": ["Contato Visual Reduzido", "Baixa Iniciativa Social"]
+    },
+    "condition": {
+      "type": "string",
+      "enum": ["TEA", "TDAH", "LINGUAGEM", "ANSIEDADE", "SENSORIAL"],
+      "description": "Condicao diagnostica principal"
+    },
+    "criterion": {
+      "type": "string",
+      "pattern": "^[A-E][0-9]*$",
+      "description": "Criterio DSM-5 correspondente",
+      "examples": ["A1", "B2", "C"]
+    },
+    "domain": {
+      "type": "string",
+      "description": "Dominio clinico do conceito",
+      "examples": ["social", "comunicacao", "comportamento_restrito", "sensorial"]
+    },
+    "weight": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 10,
+      "description": "Peso do conceito para calculo de escores"
+    },
+    "description": {
+      "type": "string",
+      "minLength": 20,
+      "description": "Descricao clinica clara e objetiva do conceito"
+    },
+    "age_relevant": {
+      "type": "string",
+      "description": "Faixa etaria relevante para o conceito",
+      "examples": ["todos", "0-3", "4-12", "13-18"]
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date",
+      "description": "Data de criacao no formato YYYY-MM-DD"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date",
+      "description": "Data da ultima atualizacao no formato YYYY-MM-DD"
+    }
+  },
+  "additionalProperties": false
+}
