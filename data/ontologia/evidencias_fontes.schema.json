@@ -78,8 +78,7 @@
           },
           "year": {
             "type": "integer",
-            "minimum": 1900,
-            "maximum": 2100
+            "minimum": 1900
           },
           "url_or_doi": {
             "type": "string",
