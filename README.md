@@ -28,7 +28,7 @@ Ontologia inicial com foco em:
 ## Validação de dados da ontologia
 
 ```bash
-python3 /home/runner/work/BMEN/BMEN/src/validate_ontology.py
+python3 src/validate_ontology.py
 ```
 
 O comando valida:

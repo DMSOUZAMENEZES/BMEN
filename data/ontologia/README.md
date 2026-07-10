@@ -22,7 +22,7 @@ Esta pasta contém os artefatos de dados da ontologia.
 Validação automatizada (sem dependências externas):
 
 ```bash
-python3 /home/runner/work/BMEN/BMEN/src/validate_ontology.py
+python3 src/validate_ontology.py
 ```
 
 Essa validação cobre:
@@ -37,7 +37,7 @@ Essa validação cobre:
 1. Atualize o dataset alvo (`bmen_v1.json`, `evidencias_fontes.json` ou `matriz_condicao_dominio_intervencao.csv`)
 2. Se houver mudança estrutural, atualize o schema correspondente
 3. Atualize `datasets_manifest.json` com versão e metadados
-4. Execute `python3 /home/runner/work/BMEN/BMEN/src/validate_ontology.py`
+4. Execute `python3 src/validate_ontology.py`
 5. Submeta o PR incluindo fontes/referências para novos conceitos e relações
 
 ## Evolução recomendada

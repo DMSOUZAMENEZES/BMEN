@@ -88,7 +88,7 @@ Abra uma Issue no GitHub descrevendo o conceito clinico e aguarde aprovacao.
 Execute:
 
 ```bash
-python3 /home/runner/work/BMEN/BMEN/src/validate_ontology.py
+python3 src/validate_ontology.py
 ```
 
 Inclua no PR:
