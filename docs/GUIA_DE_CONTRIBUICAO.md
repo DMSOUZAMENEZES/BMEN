@@ -82,3 +82,17 @@ No arquivo `ontology/{condicao}.json`, adicione o ID do conceito no array `conce
 
 Todos os novos conceitos devem ser revisados pela Dra. Sinara antes do merge.
 Abra uma Issue no GitHub descrevendo o conceito clinico e aguarde aprovacao.
+
+## Validacao obrigatoria antes do PR
+
+Execute:
+
+```bash
+python3 /home/runner/work/BMEN/BMEN/src/validate_ontology.py
+```
+
+Inclua no PR:
+
+- fontes (`source_ids`) para novos elementos
+- evidências (`evidence_ids`) quando houver intervenções
+- atualização de versão/metadados em `data/ontologia/datasets_manifest.json`

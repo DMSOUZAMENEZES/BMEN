@@ -10,29 +10,64 @@
       "id": "ev_adaptacao_ambiental_sensorial_001",
       "statement": "Adaptações ambientais podem reduzir sobrecarga sensorial em perfis com hipersensibilidade.",
       "level": "moderado",
-      "supports": ["adaptacao_ambiental_sensorial"]
+      "supports_interventions": ["adaptacao_ambiental_sensorial"],
+      "source_ids": ["src_dsm5tr_2022", "src_cdc_asd_2025"]
     },
     {
       "id": "ev_rotina_estruturada_001",
       "statement": "Rotinas estruturadas e apoios externos favorecem organização e manejo executivo em perfis com dificuldades atencionais.",
       "level": "moderado",
-      "supports": ["rotina_estruturada_suporte_executivo"]
+      "supports_interventions": ["rotina_estruturada_suporte_executivo"],
+      "source_ids": ["src_nice_adhd_2019"]
     },
     {
       "id": "ev_comunicacao_pragmatica_001",
       "statement": "Intervenções focadas em comunicação pragmática podem favorecer funcionalidade comunicativa e interação social.",
       "level": "moderado",
-      "supports": ["intervencao_comunicacao_pragmatica"]
+      "supports_interventions": ["intervencao_comunicacao_pragmatica"],
+      "source_ids": ["src_asah_2020", "src_dsm5tr_2022"]
     }
   ],
   "sources": [
     {
-      "id": "src_placeholder_001",
-      "title": "Fonte a ser definida",
-      "authors": ["A definir"],
-      "year": 2026,
-      "url_or_doi": "",
-      "notes": "Substituir por revisão, guideline ou artigo primário"
+      "id": "src_dsm5tr_2022",
+      "title": "Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition, Text Revision (DSM-5-TR)",
+      "authors": ["American Psychiatric Association"],
+      "year": 2022,
+      "url_or_doi": "https://doi.org/10.1176/appi.books.9780890425787",
+      "notes": "Referência classificatória para critérios diagnósticos."
+    },
+    {
+      "id": "src_nice_adhd_2019",
+      "title": "Attention deficit hyperactivity disorder: diagnosis and management (NICE Guideline NG87)",
+      "authors": ["National Institute for Health and Care Excellence"],
+      "year": 2019,
+      "url_or_doi": "https://www.nice.org.uk/guidance/ng87",
+      "notes": "Atualizado periodicamente; usado para recomendações de manejo do TDAH."
+    },
+    {
+      "id": "src_cdc_asd_2025",
+      "title": "Autism Spectrum Disorder (ASD) - Signs and Symptoms",
+      "authors": ["Centers for Disease Control and Prevention"],
+      "year": 2025,
+      "url_or_doi": "https://www.cdc.gov/autism/signs-symptoms/",
+      "notes": "Fonte de apoio para descrição de sinais e necessidades de suporte."
+    },
+    {
+      "id": "src_asah_2020",
+      "title": "National Guideline for the Assessment and Diagnosis of Autism Spectrum Disorders in Australia",
+      "authors": ["Autism CRC"],
+      "year": 2020,
+      "url_or_doi": "https://www.autismcrc.com.au/access/national-guideline",
+      "notes": "Inclui recomendações para avaliação e planejamento de intervenção."
+    },
+    {
+      "id": "src_who_icd11_2024",
+      "title": "ICD-11 for Mortality and Morbidity Statistics",
+      "authors": ["World Health Organization"],
+      "year": 2024,
+      "url_or_doi": "https://icd.who.int/browse/2024-01/mms/en",
+      "notes": "Referência classificatória complementar para condições de ansiedade."
     }
   ]
 }
