@@ -6,8 +6,10 @@ Esta pasta contém os artefatos de dados da ontologia.
 
 - `bmen_v1.json`: estrutura inicial da ontologia (v1.0.0)
 - `matriz_condicao_dominio_intervencao.csv`: matriz inicial de mapeamento condição × domínio × intervenção
-- `schema.json`: JSON Schema para validação estrutural dos arquivos da ontologia
+- `schema.json`: JSON Schema versionável para a ontologia principal (classes, propriedades, IDs, namespaces e relações)
 - `evidencias_fontes.json`: catálogo inicial de evidências e fontes
+- `evidencias_fontes.schema.json`: JSON Schema para catálogo de evidências e fontes
+- `datasets_manifest.json`: manifesto versionado dos datasets iniciais
 
 ## Convenções
 
@@ -17,11 +19,26 @@ Esta pasta contém os artefatos de dados da ontologia.
 
 ## Validação
 
-Exemplo com Node.js + `ajv`:
+Validação automatizada (sem dependências externas):
 
 ```bash
-npx ajv validate -s data/ontologia/schema.json -d data/ontologia/bmen_v1.json
+python3 src/validate_ontology.py
 ```
+
+Essa validação cobre:
+
+1. Estrutura/formato dos datasets
+2. Identificadores obrigatórios e padrão de IDs
+3. Referências para entidades existentes
+4. Consistência mínima entre JSON, CSV e manifesto
+
+## Como contribuir com novas versões
+
+1. Atualize o dataset alvo (`bmen_v1.json`, `evidencias_fontes.json` ou `matriz_condicao_dominio_intervencao.csv`)
+2. Se houver mudança estrutural, atualize o schema correspondente
+3. Atualize `datasets_manifest.json` com versão e metadados
+4. Execute `python3 src/validate_ontology.py`
+5. Submeta o PR incluindo fontes/referências para novos conceitos e relações
 
 ## Evolução recomendada
 

@@ -223,10 +223,19 @@ Evidência conectada a afirmações/estratégias.
 ## Governança e versão
 
 - Versão atual: `1.0.0`
+- Esquema JSON versionado: `data/ontologia/schema.json`
+- Catálogo de evidências/fontes: `data/ontologia/evidencias_fontes.json`
+- Manifesto de datasets: `data/ontologia/datasets_manifest.json`
 - Tipo de evolução:
   - PATCH: correções textuais/metadata
   - MINOR: novos conceitos/relacionamentos compatíveis
   - MAJOR: mudanças incompatíveis no esquema
+
+## Namespaces (v1.0)
+
+- `bmen`: `https://github.com/DMSOUZAMENEZES/BMEN/ontology#`
+- `dcterms`: `http://purl.org/dc/terms/`
+- `schema`: `https://schema.org/`
 
 ## Próximas entregas (v1.1)
 
