@@ -1,0 +1,47 @@
+{
+  "id": "SENSORIAL",
+  "label": "Processamento Sensorial",
+  "version": "1.0.0",
+  "updated_at": "2026-08-21",
+  "description": "Ontologia de processamento sensorial - modulacao e integracao de estimulos sensoriais, relacionada ao criterio B4 do DSM-5 para TEA e a padroes de busca/evitacao sensorial",
+  "domains": {
+    "hiper_reatividade": {
+      "label": "Hiper-reatividade Sensorial",
+      "description": "Resposta intensa ou aversiva a estimulos sensoriais tipicamente tolerados",
+      "concepts": []
+    },
+    "hipo_reatividade": {
+      "label": "Hipo-reatividade Sensorial",
+      "description": "Resposta reduzida ou ausente a estimulos sensoriais, incluindo limiar elevado a dor ou temperatura",
+      "concepts": []
+    },
+    "busca_sensorial": {
+      "label": "Busca Sensorial",
+      "description": "Interesse incomum ou busca ativa por estimulos sensoriais especificos",
+      "concepts": []
+    }
+  },
+  "modalities": {
+    "auditiva": {
+      "label": "Modalidade Auditiva",
+      "concepts": []
+    },
+    "tatil": {
+      "label": "Modalidade Tatil",
+      "concepts": []
+    },
+    "visual": {
+      "label": "Modalidade Visual",
+      "concepts": []
+    },
+    "olfativa_gustativa": {
+      "label": "Modalidade Olfativa e Gustativa",
+      "concepts": []
+    },
+    "proprioceptiva_vestibular": {
+      "label": "Modalidade Proprioceptiva e Vestibular",
+      "concepts": []
+    }
+  },
+  "related_conditions": ["TEA", "TDAH", "ansiedade"]
+}

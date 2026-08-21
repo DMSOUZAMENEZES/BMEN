@@ -1,1 +1,52 @@
-
+[
+  {
+    "concept": "baixa_iniciativa_social",
+    "condition": "TEA",
+    "criterion": "A1",
+    "aliases": [
+      "não puxa assunto com outras crianças",
+      "não procura os colegas para brincar",
+      "fica sozinho mesmo com outras crianças por perto"
+    ]
+  },
+  {
+    "concept": "contato_visual_reduzido",
+    "condition": "TEA",
+    "criterion": "A2",
+    "aliases": [
+      "evita olhar nos olhos",
+      "desvia o olhar durante a conversa",
+      "não sustenta o olhar quando é chamado"
+    ]
+  },
+  {
+    "concept": "insistencia_rotinas",
+    "condition": "TEA",
+    "criterion": "B2",
+    "aliases": [
+      "fica muito incomodado com qualquer mudança",
+      "faz birra quando a rotina muda",
+      "precisa que as coisas sejam sempre do mesmo jeito"
+    ]
+  },
+  {
+    "concept": "dificuldade_manutencao_atencao",
+    "condition": "TDAH",
+    "criterion": "A1",
+    "aliases": [
+      "não consegue terminar as tarefas",
+      "se distrai com qualquer coisa",
+      "parece que não está ouvindo quando falam com ele"
+    ]
+  },
+  {
+    "concept": "hiperatividade_motora",
+    "condition": "TDAH",
+    "criterion": "A2",
+    "aliases": [
+      "não para quieto",
+      "sai correndo em momentos inadequados",
+      "mexe as mãos ou os pés o tempo todo"
+    ]
+  }
+]

@@ -40,6 +40,7 @@ Esta versão (v1.0) prioriza:
 - Regulação emocional
 - Processamento sensorial
 - Interação social
+- Comportamento restrito e repetitivo
 
 ## Classes iniciais
 
@@ -222,7 +223,7 @@ Evidência conectada a afirmações/estratégias.
 
 ## Governança e versão
 
-- Versão atual: `1.0.0`
+- Versão atual: `1.1.0`
 - Esquema JSON versionado: `data/ontologia/schema.json`
 - Catálogo de evidências/fontes: `data/ontologia/evidencias_fontes.json`
 - Manifesto de datasets: `data/ontologia/datasets_manifest.json`

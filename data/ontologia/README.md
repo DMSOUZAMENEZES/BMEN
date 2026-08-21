@@ -31,6 +31,9 @@ Essa validação cobre:
 2. Identificadores obrigatórios e padrão de IDs
 3. Referências para entidades existentes
 4. Consistência mínima entre JSON, CSV e manifesto
+5. `concepts.json`, `aliases.json` e o vínculo bidirecional entre conceitos e os critérios DSM-5 em `ontology/*.json`
+
+A validação também roda automaticamente em CI (`.github/workflows/validate.yml`) a cada push e pull request.
 
 ## Como contribuir com novas versões
 
@@ -45,4 +48,4 @@ Essa validação cobre:
 1. Criar `bmen_v1_1.json` para mudanças compatíveis
 2. Ligar `evidences` e `sources` diretamente às intervenções/afirmações
 3. Adicionar catálogo mais amplo de sinais e avaliações
-4. Incluir testes de validação no CI
+4. ~~Incluir testes de validação no CI~~ — feito em `.github/workflows/validate.yml`
