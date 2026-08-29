@@ -39,6 +39,12 @@
       "description": "Dominio clinico do conceito",
       "examples": ["social", "comunicacao", "comportamento_restrito", "sensorial"]
     },
+    "domain_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:_[a-z0-9]+)*$",
+      "description": "Referencia ao id canonico de dominio funcional definido em data/ontologia/bmen_v1.json (reconciliacao entre o vocabulario clinico livre de 'domain' e o vocabulario formal da ontologia)",
+      "examples": ["interacao_social", "atencao_executivo", "comportamento_restrito"]
+    },
     "weight": {
       "type": "integer",
       "minimum": 1,

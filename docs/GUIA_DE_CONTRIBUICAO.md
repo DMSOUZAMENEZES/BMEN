@@ -52,7 +52,11 @@ Exemplos:
 
 ### Passo 5: Vincular ao criterio na ontologia
 
-No arquivo `ontology/{condicao}.json`, adicione o ID do conceito no array `concepts` do criterio correspondente.
+No arquivo `ontology/{condicao}.json`, adicione o ID do conceito no array `concepts` do criterio correspondente. Esse vinculo agora e obrigatorio: `src/validate_ontology.py` falha se um conceito de `concepts.json` nao estiver vinculado no arquivo de ontologia correspondente (e vice-versa).
+
+### Passo 6: Reconciliar o dominio com a ontologia formal (opcional)
+
+Se o `domain` livre do conceito corresponder a um dominio funcional ja modelado em `data/ontologia/bmen_v1.json`, adicione o campo `domain_id` com o id canonico daquele dominio (ex.: `"domain_id": "interacao_social"`). Isso liga o vocabulario clinico de `concepts.json` ao vocabulario formal da ontologia. `domain_id` e validado contra os dominios existentes em `bmen_v1.json`.
 
 ---
 
@@ -91,8 +95,11 @@ Execute:
 python3 src/validate_ontology.py
 ```
 
+Esse script valida tanto os datasets em `data/ontologia/` quanto `concepts.json`, `aliases.json`, `ontology/*.json` e `differentials/*.json`, incluindo o vinculo bidirecional entre conceitos e criterios DSM-5. O mesmo comando roda automaticamente em CI (`.github/workflows/validate.yml`) em todo push e pull request.
+
 Inclua no PR:
 
 - fontes (`source_ids`) para novos elementos
 - evidências (`evidence_ids`) quando houver intervenções
 - atualização de versão/metadados em `data/ontologia/datasets_manifest.json`
+- aliases (`aliases.json`) para todo conceito novo em `concepts.json`

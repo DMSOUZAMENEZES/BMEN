@@ -12,12 +12,12 @@
         "A1": {
           "label": "Desatencao",
           "minimum_symptoms": 6,
-          "concepts": []
+          "concepts": ["TDAH_A1_DES_001"]
         },
         "A2": {
           "label": "Hiperatividade e Impulsividade",
           "minimum_symptoms": 6,
-          "concepts": []
+          "concepts": ["TDAH_A2_HIP_001"]
         }
       }
     },

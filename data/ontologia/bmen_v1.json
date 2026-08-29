@@ -2,7 +2,7 @@
   "meta": {
     "ontology_id": "bmen_core",
     "name": "BMEN Ontologia",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "language": "pt-BR",
     "created_at": "2026-06-17",
     "namespaces": {
@@ -43,6 +43,11 @@
       "id": "interacao_social",
       "label": "Interação social",
       "description": "Reciprocidade social e adaptação contextual"
+    },
+    {
+      "id": "comportamento_restrito",
+      "label": "Comportamento restrito e repetitivo",
+      "description": "Padrões de comportamento, interesses ou atividades restritos, repetitivos e inflexibilidade a rotinas"
     }
   ],
   "conditions": [
@@ -51,7 +56,7 @@
       "label": "Transtorno do Espectro Autista",
       "aliases": ["TEA", "ASD"],
       "category": "neurodesenvolvimento",
-      "affects_domains": ["linguagem", "sensorial", "interacao_social", "regulacao_emocional"],
+      "affects_domains": ["linguagem", "sensorial", "interacao_social", "regulacao_emocional", "comportamento_restrito"],
       "source_ids": ["src_dsm5tr_2022", "src_cdc_asd_2025"]
     },
     {

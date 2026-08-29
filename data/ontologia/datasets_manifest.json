@@ -1,13 +1,13 @@
 {
-  "dataset_release": "v1.0.0",
-  "generated_at": "2026-07-10",
+  "dataset_release": "v1.1.0",
+  "generated_at": "2026-08-21",
   "datasets": [
     {
       "id": "bmen_core_ontology",
       "file": "bmen_v1.json",
       "format": "json",
       "schema": "schema.json",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "description": "Classes e relações centrais da ontologia BMEN (domínios, condições, sinais, avaliações e intervenções).",
       "contains_sensitive_data": false
     },

@@ -11,11 +11,11 @@
                   "subcriteria": {
                             "A1": {
                                         "label": "Déficits na reciprocidade socioemocional",
-                                        "concepts": []
+                                        "concepts": ["TEA_A1_SOC_001"]
                             },
                             "A2": {
                                         "label": "Déficits nos comportamentos comunicativos não-verbais",
-                                        "concepts": []
+                                        "concepts": ["TEA_A2_NV_001"]
                             },
                             "A3": {
                                         "label": "Déficits no desenvolvimento e manutenção de relacionamentos",
@@ -34,7 +34,7 @@
                             },
                             "B2": {
                                         "label": "Insistência na mesmice e inflexibilidade a rotinas",
-                                        "concepts": []
+                                        "concepts": ["TEA_B2_ROT_001"]
                             },
                             "B3": {
                                         "label": "Interesses altamente restritos e fixos",

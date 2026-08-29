@@ -10,11 +10,24 @@ ONTOLOGY_PATH = ROOT / "data" / "ontologia" / "bmen_v1.json"
 EVIDENCE_PATH = ROOT / "data" / "ontologia" / "evidencias_fontes.json"
 MATRIX_PATH = ROOT / "data" / "ontologia" / "matriz_condicao_dominio_intervencao.csv"
 MANIFEST_PATH = ROOT / "data" / "ontologia" / "datasets_manifest.json"
+CONCEPTS_PATH = ROOT / "concepts.json"
+ALIASES_PATH = ROOT / "aliases.json"
+ONTOLOGY_DIR = ROOT / "ontology"
+DIFFERENTIALS_DIR = ROOT / "differentials"
 
 SNAKE_RE = re.compile(r"^[a-z0-9]+(?:_[a-z0-9]+)*$")
 SEMVER_RE = re.compile(r"^[0-9]+\.[0-9]+\.[0-9]+$")
 EVIDENCE_ID_RE = re.compile(r"^ev_[a-z0-9]+(?:_[a-z0-9]+)*$")
 SOURCE_ID_RE = re.compile(r"^src_[a-z0-9]+(?:_[a-z0-9]+)*$")
+CONCEPT_ID_RE = re.compile(r"^[A-Z]+_[A-Z0-9]+_[A-Z]+_[0-9]{3}$")
+CONCEPT_NAME_RE = re.compile(r"^[a-z][a-z0-9_]*$")
+CRITERION_RE = re.compile(r"^[A-E][0-9]*$")
+CONCEPT_CONDITIONS = {"TEA", "TDAH", "LINGUAGEM", "ANSIEDADE", "SENSORIAL"}
+CONCEPT_ALLOWED_KEYS = {
+    "id", "concept", "label", "condition", "criterion", "domain", "domain_id",
+    "weight", "description", "age_relevant", "created_at", "updated_at",
+}
+CONCEPT_REQUIRED_KEYS = ["id", "concept", "label", "condition", "criterion", "domain", "weight", "description"]
 
 
 def load_json(path: Path):
@@ -208,6 +221,148 @@ def validate_manifest(errors):
             check(dataset_file.exists(), f"{where}.file referencia arquivo inexistente: {file_name}", errors)
 
 
+def validate_concepts(domain_ids, errors):
+    concepts = load_json(CONCEPTS_PATH)
+    check(isinstance(concepts, list) and len(concepts) > 0, "concepts.json deve ser uma lista não vazia", errors)
+    concept_ids = set()
+    concept_names = set()
+    concept_index = {}
+    if not isinstance(concepts, list):
+        return concept_ids, concept_names, concept_index
+
+    for i, concept in enumerate(concepts):
+        where = f"concepts.json[{i}]"
+        if not isinstance(concept, dict):
+            errors.append(f"{where}: deve ser um objeto")
+            continue
+        check_required(concept, CONCEPT_REQUIRED_KEYS, where, errors)
+        extra_keys = set(concept.keys()) - CONCEPT_ALLOWED_KEYS
+        check(not extra_keys, f"{where}: campos não permitidos {sorted(extra_keys)}", errors)
+
+        concept_id = concept.get("id")
+        if isinstance(concept_id, str):
+            check(bool(CONCEPT_ID_RE.fullmatch(concept_id)), f"{where}.id deve seguir o padrão CONDICAO_CRITERIO_DOMINIO_NUM", errors)
+            check(concept_id not in concept_ids, f"{where}.id duplicado: {concept_id}", errors)
+            concept_ids.add(concept_id)
+
+        concept_name = concept.get("concept")
+        if isinstance(concept_name, str):
+            check(bool(CONCEPT_NAME_RE.fullmatch(concept_name)), f"{where}.concept deve ser snake_case", errors)
+            concept_names.add(concept_name)
+
+        condition = concept.get("condition")
+        check(condition in CONCEPT_CONDITIONS, f"{where}.condition inválida: {condition}", errors)
+
+        criterion = concept.get("criterion")
+        if isinstance(criterion, str):
+            check(bool(CRITERION_RE.fullmatch(criterion)), f"{where}.criterion inválido: {criterion}", errors)
+
+        weight = concept.get("weight")
+        check(isinstance(weight, int) and not isinstance(weight, bool) and 1 <= weight <= 10, f"{where}.weight deve ser inteiro entre 1 e 10", errors)
+
+        description = concept.get("description")
+        check(isinstance(description, str) and len(description) >= 20, f"{where}.description deve ter ao menos 20 caracteres", errors)
+
+        domain_id = concept.get("domain_id")
+        if domain_id is not None:
+            check(domain_id in domain_ids, f"{where}.domain_id referencia domínio inexistente em bmen_v1: {domain_id}", errors)
+
+        if isinstance(condition, str) and isinstance(criterion, str) and isinstance(concept_id, str):
+            concept_index.setdefault((condition, criterion), []).append(concept_id)
+
+    return concept_ids, concept_names, concept_index
+
+
+def validate_aliases(concept_names, errors):
+    try:
+        with ALIASES_PATH.open("r", encoding="utf-8") as f:
+            content = f.read().strip()
+        aliases = json.loads(content) if content else None
+    except json.JSONDecodeError:
+        errors.append("aliases.json: JSON inválido")
+        return
+
+    check(isinstance(aliases, list) and len(aliases) > 0, "aliases.json deve ser uma lista não vazia", errors)
+    if not isinstance(aliases, list):
+        return
+
+    covered = set()
+    for i, entry in enumerate(aliases):
+        where = f"aliases.json[{i}]"
+        if not isinstance(entry, dict):
+            errors.append(f"{where}: deve ser um objeto")
+            continue
+        check_required(entry, ["concept", "condition", "criterion", "aliases"], where, errors)
+        concept_name = entry.get("concept")
+        check(concept_name in concept_names, f"{where}.concept referencia conceito inexistente em concepts.json: {concept_name}", errors)
+        alias_list = entry.get("aliases")
+        check(isinstance(alias_list, list) and len(alias_list) > 0, f"{where}.aliases deve ser lista não vazia", errors)
+        if isinstance(concept_name, str):
+            covered.add(concept_name)
+
+    missing = concept_names - covered
+    check(not missing, f"aliases.json: conceitos de concepts.json sem aliases cadastrados: {sorted(missing)}", errors)
+
+
+def validate_dsm_ontology_files(concept_ids, concept_index, errors):
+    for condition_key, filename in [("TEA", "tea.json"), ("TDAH", "tdah.json")]:
+        path = ONTOLOGY_DIR / filename
+        where = f"ontology/{filename}"
+        if not path.exists():
+            errors.append(f"{where}: arquivo ausente")
+            continue
+        data = load_json(path)
+        check_required(data, ["id", "label", "version", "description", "criteria"], where, errors)
+        if not bool(SEMVER_RE.fullmatch(str(data.get("version", "")))):
+            errors.append(f"{where}.version deve seguir semver (x.y.z)")
+
+        linked = set()
+        for crit_key, crit in data.get("criteria", {}).items():
+            groups = crit.get("subcriteria") or crit.get("presentations") or {}
+            for sub_key, sub in groups.items():
+                sub_concepts = sub.get("concepts", [])
+                for concept_id in sub_concepts:
+                    check(
+                        concept_id in concept_ids,
+                        f"{where}.criteria.{crit_key}.{sub_key}.concepts referencia conceito inexistente: {concept_id}",
+                        errors,
+                    )
+                    linked.add(concept_id)
+                for concept_id in concept_index.get((condition_key, sub_key), []):
+                    check(
+                        concept_id in sub_concepts,
+                        f"{where}.criteria.{crit_key}.{sub_key}: concepts.json define {concept_id} mas ele não está vinculado neste arquivo",
+                        errors,
+                    )
+
+
+def validate_free_ontology_files(errors):
+    for filename in ["ansiedade.json", "linguagem.json", "sensorial.json"]:
+        path = ONTOLOGY_DIR / filename
+        where = f"ontology/{filename}"
+        check(path.exists(), f"{where}: arquivo ausente", errors)
+        if not path.exists():
+            continue
+        data = load_json(path)
+        check_required(data, ["id", "label", "version", "description"], where, errors)
+        version = data.get("version", "")
+        check(bool(SEMVER_RE.fullmatch(str(version))), f"{where}.version deve seguir semver (x.y.z)", errors)
+
+
+def validate_differentials(errors):
+    path = DIFFERENTIALS_DIR / "tea-vs-tdah.json"
+    where = "differentials/tea-vs-tdah.json"
+    check(path.exists(), f"{where}: arquivo ausente", errors)
+    if not path.exists():
+        return
+    data = load_json(path)
+    check_required(data, ["id", "title", "version", "key_distinctions"], where, errors)
+    key_distinctions = data.get("key_distinctions", [])
+    check(isinstance(key_distinctions, list) and len(key_distinctions) > 0, f"{where}.key_distinctions deve ser lista não vazia", errors)
+    for i, item in enumerate(key_distinctions):
+        check_required(item, ["domain", "tea", "tdah"], f"{where}.key_distinctions[{i}]", errors)
+
+
 def main():
     errors = []
 
@@ -236,6 +391,12 @@ def main():
 
     validate_matrix(intervention_ids, condition_ids, domain_ids, errors)
     validate_manifest(errors)
+
+    concept_ids, concept_names, concept_index = validate_concepts(domain_ids, errors)
+    validate_aliases(concept_names, errors)
+    validate_dsm_ontology_files(concept_ids, concept_index, errors)
+    validate_free_ontology_files(errors)
+    validate_differentials(errors)
 
     if errors:
         print("Falhas de validação detectadas:")
